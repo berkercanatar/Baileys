@@ -716,6 +716,102 @@ export namespace proto {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of an AvatarUserSettings. */
+    interface IAvatarUserSettings {
+
+        /** AvatarUserSettings fbid */
+        fbid?: (string|null);
+
+        /** AvatarUserSettings password */
+        password?: (string|null);
+    }
+
+    /** Represents an AvatarUserSettings. */
+    class AvatarUserSettings implements IAvatarUserSettings {
+
+        /**
+         * Constructs a new AvatarUserSettings.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: proto.IAvatarUserSettings);
+
+        /** AvatarUserSettings fbid. */
+        public fbid: string;
+
+        /** AvatarUserSettings password. */
+        public password: string;
+
+        /**
+         * Creates a new AvatarUserSettings instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AvatarUserSettings instance
+         */
+        public static create(properties?: proto.IAvatarUserSettings): proto.AvatarUserSettings;
+
+        /**
+         * Encodes the specified AvatarUserSettings message. Does not implicitly {@link proto.AvatarUserSettings.verify|verify} messages.
+         * @param message AvatarUserSettings message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: proto.IAvatarUserSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified AvatarUserSettings message, length delimited. Does not implicitly {@link proto.AvatarUserSettings.verify|verify} messages.
+         * @param message AvatarUserSettings message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IAvatarUserSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an AvatarUserSettings message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AvatarUserSettings
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.AvatarUserSettings;
+
+        /**
+         * Decodes an AvatarUserSettings message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AvatarUserSettings
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.AvatarUserSettings;
+
+        /**
+         * Verifies an AvatarUserSettings message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an AvatarUserSettings message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns AvatarUserSettings
+         */
+        public static fromObject(object: { [k: string]: any }): proto.AvatarUserSettings;
+
+        /**
+         * Creates a plain object from an AvatarUserSettings message. Also converts values to other types if specified.
+         * @param message AvatarUserSettings
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: proto.AvatarUserSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this AvatarUserSettings to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a BizAccountLinkInfo. */
     interface IBizAccountLinkInfo {
 
@@ -2455,7 +2551,10 @@ export namespace proto {
                 OCULUS_MSG = 25,
                 OCULUS_CALL = 26,
                 MILAN = 27,
-                CAPI = 28
+                CAPI = 28,
+                WEAROS = 29,
+                ARDEVICE = 30,
+                VRDEVICE = 31
             }
 
             /** ReleaseChannel enum. */
@@ -2809,6 +2908,12 @@ export namespace proto {
 
         /** ContextInfo parentGroupJid */
         parentGroupJid?: (string|null);
+
+        /** ContextInfo trustBannerType */
+        trustBannerType?: (string|null);
+
+        /** ContextInfo trustBannerAction */
+        trustBannerAction?: (number|null);
     }
 
     /** Represents a ContextInfo. */
@@ -2888,6 +2993,12 @@ export namespace proto {
 
         /** ContextInfo parentGroupJid. */
         public parentGroupJid: string;
+
+        /** ContextInfo trustBannerType. */
+        public trustBannerType: string;
+
+        /** ContextInfo trustBannerAction. */
+        public trustBannerAction: number;
 
         /**
          * Creates a new ContextInfo instance using the specified properties.
@@ -3118,6 +3229,9 @@ export namespace proto {
 
             /** ExternalAdReplyInfo showAdAttribution */
             showAdAttribution?: (boolean|null);
+
+            /** ExternalAdReplyInfo ctwaClid */
+            ctwaClid?: (string|null);
         }
 
         /** Represents an ExternalAdReplyInfo. */
@@ -3164,6 +3278,9 @@ export namespace proto {
 
             /** ExternalAdReplyInfo showAdAttribution. */
             public showAdAttribution: boolean;
+
+            /** ExternalAdReplyInfo ctwaClid. */
+            public ctwaClid: string;
 
             /**
              * Creates a new ExternalAdReplyInfo instance using the specified properties.
@@ -3369,6 +3486,12 @@ export namespace proto {
 
         /** Conversation shareOwnPn */
         shareOwnPn?: (boolean|null);
+
+        /** Conversation pnhDuplicateLidThread */
+        pnhDuplicateLidThread?: (boolean|null);
+
+        /** Conversation lidJid */
+        lidJid?: (string|null);
     }
 
     /** Represents a Conversation. */
@@ -3499,6 +3622,12 @@ export namespace proto {
 
         /** Conversation shareOwnPn. */
         public shareOwnPn: boolean;
+
+        /** Conversation pnhDuplicateLidThread. */
+        public pnhDuplicateLidThread: boolean;
+
+        /** Conversation lidJid. */
+        public lidJid: string;
 
         /**
          * Creates a new Conversation instance using the specified properties.
@@ -3938,6 +4067,9 @@ export namespace proto {
 
             /** HistorySyncConfig fullSyncSizeMbLimit */
             fullSyncSizeMbLimit?: (number|null);
+
+            /** HistorySyncConfig storageQuotaMb */
+            storageQuotaMb?: (number|null);
         }
 
         /** Represents a HistorySyncConfig. */
@@ -3954,6 +4086,9 @@ export namespace proto {
 
             /** HistorySyncConfig fullSyncSizeMbLimit. */
             public fullSyncSizeMbLimit: number;
+
+            /** HistorySyncConfig storageQuotaMb. */
+            public storageQuotaMb: number;
 
             /**
              * Creates a new HistorySyncConfig instance using the specified properties.
@@ -4489,6 +4624,9 @@ export namespace proto {
 
         /** GlobalSettings disappearingModeTimestamp */
         disappearingModeTimestamp?: (number|Long|null);
+
+        /** GlobalSettings avatarUserSettings */
+        avatarUserSettings?: (proto.IAvatarUserSettings|null);
     }
 
     /** Represents a GlobalSettings. */
@@ -4529,6 +4667,9 @@ export namespace proto {
 
         /** GlobalSettings disappearingModeTimestamp. */
         public disappearingModeTimestamp: (number|Long);
+
+        /** GlobalSettings avatarUserSettings. */
+        public avatarUserSettings?: (proto.IAvatarUserSettings|null);
 
         /**
          * Creates a new GlobalSettings instance using the specified properties.
@@ -6745,6 +6886,9 @@ export namespace proto {
 
         /** Message editedMessage */
         editedMessage?: (proto.Message.IFutureProofMessage|null);
+
+        /** Message viewOnceMessageV2Extension */
+        viewOnceMessageV2Extension?: (proto.Message.IFutureProofMessage|null);
     }
 
     /** Represents a Message. */
@@ -6899,6 +7043,9 @@ export namespace proto {
 
         /** Message editedMessage. */
         public editedMessage?: (proto.Message.IFutureProofMessage|null);
+
+        /** Message viewOnceMessageV2Extension. */
+        public viewOnceMessageV2Extension?: (proto.Message.IFutureProofMessage|null);
 
         /**
          * Creates a new Message instance using the specified properties.
@@ -7680,6 +7827,9 @@ export namespace proto {
 
             /** AudioMessage waveform */
             waveform?: (Uint8Array|null);
+
+            /** AudioMessage backgroundArgb */
+            backgroundArgb?: (number|null);
         }
 
         /** Represents an AudioMessage. */
@@ -7729,6 +7879,9 @@ export namespace proto {
 
             /** AudioMessage waveform. */
             public waveform: Uint8Array;
+
+            /** AudioMessage backgroundArgb. */
+            public backgroundArgb: number;
 
             /**
              * Creates a new AudioMessage instance using the specified properties.
@@ -9453,6 +9606,9 @@ export namespace proto {
 
             /** ExtendedTextMessage inviteLinkGroupTypeV2 */
             inviteLinkGroupTypeV2?: (proto.Message.ExtendedTextMessage.InviteLinkGroupType|null);
+
+            /** ExtendedTextMessage viewOnce */
+            viewOnce?: (boolean|null);
         }
 
         /** Represents an ExtendedTextMessage. */
@@ -9532,6 +9688,9 @@ export namespace proto {
 
             /** ExtendedTextMessage inviteLinkGroupTypeV2. */
             public inviteLinkGroupTypeV2: proto.Message.ExtendedTextMessage.InviteLinkGroupType;
+
+            /** ExtendedTextMessage viewOnce. */
+            public viewOnce: boolean;
 
             /**
              * Creates a new ExtendedTextMessage instance using the specified properties.
@@ -10574,6 +10733,9 @@ export namespace proto {
 
             /** HistorySyncNotification progress */
             progress?: (number|null);
+
+            /** HistorySyncNotification oldestMsgInChunkTimestampSec */
+            oldestMsgInChunkTimestampSec?: (number|Long|null);
         }
 
         /** Represents a HistorySyncNotification. */
@@ -10611,6 +10773,9 @@ export namespace proto {
 
             /** HistorySyncNotification progress. */
             public progress: number;
+
+            /** HistorySyncNotification oldestMsgInChunkTimestampSec. */
+            public oldestMsgInChunkTimestampSec: (number|Long);
 
             /**
              * Creates a new HistorySyncNotification instance using the specified properties.
@@ -16299,6 +16464,9 @@ export namespace proto {
 
             /** StickerMessage stickerSentTs */
             stickerSentTs?: (number|Long|null);
+
+            /** StickerMessage isAvatar */
+            isAvatar?: (boolean|null);
         }
 
         /** Represents a StickerMessage. */
@@ -16357,6 +16525,9 @@ export namespace proto {
 
             /** StickerMessage stickerSentTs. */
             public stickerSentTs: (number|Long);
+
+            /** StickerMessage isAvatar. */
+            public isAvatar: boolean;
 
             /**
              * Creates a new StickerMessage instance using the specified properties.
@@ -16648,11 +16819,17 @@ export namespace proto {
             /** TemplateMessage hydratedTemplate */
             hydratedTemplate?: (proto.Message.TemplateMessage.IHydratedFourRowTemplate|null);
 
+            /** TemplateMessage templateId */
+            templateId?: (string|null);
+
             /** TemplateMessage fourRowTemplate */
             fourRowTemplate?: (proto.Message.TemplateMessage.IFourRowTemplate|null);
 
             /** TemplateMessage hydratedFourRowTemplate */
             hydratedFourRowTemplate?: (proto.Message.TemplateMessage.IHydratedFourRowTemplate|null);
+
+            /** TemplateMessage interactiveMessageTemplate */
+            interactiveMessageTemplate?: (proto.Message.IInteractiveMessage|null);
         }
 
         /** Represents a TemplateMessage. */
@@ -16670,14 +16847,20 @@ export namespace proto {
             /** TemplateMessage hydratedTemplate. */
             public hydratedTemplate?: (proto.Message.TemplateMessage.IHydratedFourRowTemplate|null);
 
+            /** TemplateMessage templateId. */
+            public templateId: string;
+
             /** TemplateMessage fourRowTemplate. */
             public fourRowTemplate?: (proto.Message.TemplateMessage.IFourRowTemplate|null);
 
             /** TemplateMessage hydratedFourRowTemplate. */
             public hydratedFourRowTemplate?: (proto.Message.TemplateMessage.IHydratedFourRowTemplate|null);
 
+            /** TemplateMessage interactiveMessageTemplate. */
+            public interactiveMessageTemplate?: (proto.Message.IInteractiveMessage|null);
+
             /** TemplateMessage format. */
-            public format?: ("fourRowTemplate"|"hydratedFourRowTemplate");
+            public format?: ("fourRowTemplate"|"hydratedFourRowTemplate"|"interactiveMessageTemplate");
 
             /**
              * Creates a new TemplateMessage instance using the specified properties.
@@ -22277,6 +22460,9 @@ export namespace proto {
 
             /** ContactAction firstName */
             firstName?: (string|null);
+
+            /** ContactAction lidJid */
+            lidJid?: (string|null);
         }
 
         /** Represents a ContactAction. */
@@ -22293,6 +22479,9 @@ export namespace proto {
 
             /** ContactAction firstName. */
             public firstName: string;
+
+            /** ContactAction lidJid. */
+            public lidJid: string;
 
             /**
              * Creates a new ContactAction instance using the specified properties.
@@ -23033,6 +23222,9 @@ export namespace proto {
 
             /** MuteAction muteEndTimestamp */
             muteEndTimestamp?: (number|Long|null);
+
+            /** MuteAction autoMuted */
+            autoMuted?: (boolean|null);
         }
 
         /** Represents a MuteAction. */
@@ -23049,6 +23241,9 @@ export namespace proto {
 
             /** MuteAction muteEndTimestamp. */
             public muteEndTimestamp: (number|Long);
+
+            /** MuteAction autoMuted. */
+            public autoMuted: boolean;
 
             /**
              * Creates a new MuteAction instance using the specified properties.
@@ -27289,7 +27484,12 @@ export namespace proto {
             MASKED_THREAD_UNMASKED = 153,
             BIZ_CHAT_ASSIGNMENT = 154,
             CHAT_PSA = 155,
-            CHAT_POLL_CREATION_MESSAGE = 156
+            CHAT_POLL_CREATION_MESSAGE = 156,
+            CAG_MASKED_THREAD_CREATED = 157,
+            COMMUNITY_PARENT_GROUP_SUBJECT_CHANGED = 158,
+            CAG_INVITE_AUTO_ADD = 159,
+            BIZ_CHAT_ASSIGNMENT_UNASSIGN = 160,
+            CAG_INVITE_AUTO_JOINED = 161
         }
     }
 
