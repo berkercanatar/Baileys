@@ -95,6 +95,10 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		await privacyQuery('profile', value)
 	}
 
+	const updateStatusPrivacy = async(value: WAPrivacyValue) => {
+		await privacyQuery('status', value)
+	}
+
 	const updateReadReceiptsPrivacy = async(value: WAReadReceiptsValue) => {
 		await privacyQuery('readreceipts', value)
 	}
@@ -935,6 +939,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		updateLastSeenPrivacy,
 		updateOnlinePrivacy,
 		updateProfilePicturePrivacy,
+		updateStatusPrivacy,
 		updateReadReceiptsPrivacy,
 		updateGroupsAddPrivacy,
 		updateDefaultDisappearingMode,

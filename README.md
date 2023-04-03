@@ -860,6 +860,11 @@ Of course, replace ``` xyz ``` with an actual ID.
     const value = 'all' // 'contacts' | 'contact_blacklist' | 'none'
     await sock.updateProfilePicturePrivacy(value)
     ```
+- To update the Status privacy
+    ``` ts
+    const value = 'all' // 'contacts' | 'contact_blacklist' | 'none'
+    await sock.updateStatusPrivacy(value)
+    ```
 - To update the Read Receipts privacy
     ``` ts
     const value = 'all' // 'none'
