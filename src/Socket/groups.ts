@@ -215,12 +215,20 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 			await groupQuery(
 				jid,
 				'set',
-				[{
-					tag: 'group_join',
-					attrs: {
-						'state': value
+				[
+					{
+						tag: 'membership_approval_mode',
+						attrs: {},
+						content: [
+							{
+								tag: 'group_join',
+								attrs: {
+									'state': value
+								}
+							}
+						]
 					}
-				}]
+				]
 			)
 		},
 		groupFetchAllParticipating: async () => {
