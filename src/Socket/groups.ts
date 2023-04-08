@@ -280,8 +280,13 @@ export const extractGroupMetadata = (result: BinaryNode) => {
 		descId = descChild.attrs.id
 	}
 
+	const approvalMode = getBinaryNodeChild(
+		getBinaryNodeChild(group, 'membership_approval_mode'), 'group_join'
+	)?.attrs?.state
+
 	const groupId = group.attrs.id.includes('@') ? group.attrs.id : jidEncode(group.attrs.id, 'g.us')
 	const eph = getBinaryNodeChild(group, 'ephemeral')?.attrs.expiration
+
 	const metadata: GroupMetadata = {
 		id: groupId,
 		subject: group.attrs.subject,
@@ -294,6 +299,7 @@ export const extractGroupMetadata = (result: BinaryNode) => {
 		descId,
 		restrict: !!getBinaryNodeChild(group, 'locked'),
 		announce: !!getBinaryNodeChild(group, 'announcement'),
+		membershipApprovalMode: approvalMode === 'on',
 		participants: getBinaryNodeChildren(group, 'participant').map(
 			({ attrs }) => {
 				return {
