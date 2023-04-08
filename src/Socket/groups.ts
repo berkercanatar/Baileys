@@ -208,7 +208,7 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 				{ tag: 'not_ephemeral', attrs: { } }
 			await groupQuery(jid, 'set', [content])
 		},
-		groupSettingUpdate: async(jid: string, setting: 'announcement' | 'not_announcement' | 'locked' | 'unlocked' | '') => {
+		groupSettingUpdate: async(jid: string, setting: 'announcement' | 'not_announcement' | 'locked' | 'unlocked') => {
 			await groupQuery(jid, 'set', [ { tag: setting, attrs: { } } ])
 		},
 		groupToggleMembershipApprovalMode: async(jid: string, value: 'on' | 'off') => {
