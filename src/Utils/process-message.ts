@@ -333,7 +333,12 @@ const processMessage = async(
 			const code = message.messageStubParameters?.[0]
 			emitGroupUpdate({ inviteCode: code })
 			break
+		case WAMessageStubType.GROUP_MEMBERSHIP_JOIN_APPROVAL_MODE:
+			const membershipApprovalMode = message.messageStubParameters?.[0]
+			emitGroupUpdate({ membershipApprovalMode: membershipApprovalMode === 'on' })
+			break
 		}
+		
 	} else if(content?.pollUpdateMessage) {
 		const creationMsgKey = content.pollUpdateMessage.pollCreationMessageKey!
 		// we need to fetch the poll creation message to get the poll enc key
