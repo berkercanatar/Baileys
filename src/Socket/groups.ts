@@ -24,7 +24,7 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 		const result = await groupQuery(
 			jid,
 			'get',
-			[{ tag: 'query', attrs: { request: 'interactive' } }]
+			[ { tag: 'query', attrs: { request: 'interactive' } } ]
 		)
 		return extractGroupMetadata(result)
 	}
@@ -121,19 +121,19 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 							...(prev ? { prev } : {})
 						},
 						content: description ? [
-							{ tag: 'body', attrs: { }, content: Buffer.from(description, 'utf-8') }
+							{ tag: 'body', attrs: {}, content: Buffer.from(description, 'utf-8') }
 						] : undefined
 					}
 				]
 			)
 		},
 		groupInviteCode: async(jid: string) => {
-			const result = await groupQuery(jid, 'get', [{ tag: 'invite', attrs: { } }])
+			const result = await groupQuery(jid, 'get', [{ tag: 'invite', attrs: {} }])
 			const inviteNode = getBinaryNodeChild(result, 'invite')
 			return inviteNode?.attrs.code
 		},
 		groupRevokeInvite: async(jid: string) => {
-			const result = await groupQuery(jid, 'set', [{ tag: 'invite', attrs: { } }])
+			const result = await groupQuery(jid, 'set', [{ tag: 'invite', attrs: {} }])
 			const inviteNode = getBinaryNodeChild(result, 'invite')
 			return inviteNode?.attrs.code
 		},
@@ -209,7 +209,7 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 			await groupQuery(jid, 'set', [content])
 		},
 		groupSettingUpdate: async(jid: string, setting: 'announcement' | 'not_announcement' | 'locked' | 'unlocked' | '') => {
-			await groupQuery(jid, 'set', [{ tag: setting, attrs: { } }])
+			await groupQuery(jid, 'set', [ { tag: setting, attrs: { } } ])
 		},
 		groupToggleMembershipApprovalMode: async(jid: string, value: 'on' | 'off') => {
 			await groupQuery(
@@ -250,7 +250,7 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 					}
 				]
 			})
-			const data: { [_: string]: GroupMetadata } = {}
+			const data: { [_: string]: GroupMetadata } = { }
 			const groupsChild = getBinaryNodeChild(result, 'groups')
 			if(groupsChild) {
 				const groups = getBinaryNodeChildren(groupsChild, 'group')
